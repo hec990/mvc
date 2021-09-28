@@ -1,4 +1,4 @@
-import './app1.css';
-import $ from "jquery"
+import './global.css'
+import './app1.js'
 
-console.log($)
+import $ from "jquery" // 将导入的jquery赋值为$

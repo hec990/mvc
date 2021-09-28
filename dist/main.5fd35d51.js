@@ -164,7 +164,12 @@ function reloadCSS() {
 }
 
 module.exports = reloadCSS;
-},{"./bundle-url":"..\\..\\..\\AppData\\Local\\Yarn\\Data\\global\\node_modules\\parcel\\src\\builtins\\bundle-url.js"}],"app1.css":[function(require,module,exports) {
+},{"./bundle-url":"..\\..\\..\\AppData\\Local\\Yarn\\Data\\global\\node_modules\\parcel\\src\\builtins\\bundle-url.js"}],"global.css":[function(require,module,exports) {
+
+var reloadCSS = require('_css_loader');
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"..\\..\\..\\AppData\\Local\\Yarn\\Data\\global\\node_modules\\parcel\\src\\builtins\\css-loader.js"}],"app1.css":[function(require,module,exports) {
 
 var reloadCSS = require('_css_loader');
 module.hot.dispose(reloadCSS);
@@ -11242,7 +11247,7 @@ if ( typeof noGlobal === "undefined" ) {
 return jQuery;
 } );
 
-},{"process":"..\\..\\..\\AppData\\Local\\Yarn\\Data\\global\\node_modules\\process\\browser.js"}],"main.js":[function(require,module,exports) {
+},{"process":"..\\..\\..\\AppData\\Local\\Yarn\\Data\\global\\node_modules\\process\\browser.js"}],"app1.js":[function(require,module,exports) {
 "use strict";
 
 require("./app1.css");
@@ -11253,8 +11258,30 @@ var _jquery2 = _interopRequireDefault(_jquery);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-console.log(_jquery2.default);
-},{"./app1.css":"app1.css","jquery":"..\\node_modules\\jquery\\dist\\jquery.js"}],"..\\..\\..\\AppData\\Local\\Yarn\\Data\\global\\node_modules\\parcel\\src\\builtins\\hmr-runtime.js":[function(require,module,exports) {
+var $button1 = (0, _jquery2.default)(".add");
+var $button2 = (0, _jquery2.default)(".sub");
+var $button3 = (0, _jquery2.default)(".mike");
+var $button4 = (0, _jquery2.default)(".divite");
+var $number = (0, _jquery2.default)(".number");
+
+$button1.on('click', function () {
+    var n = parseInt($number.text());
+    n += 1;
+    $number.text(n);
+});
+},{"./app1.css":"app1.css","jquery":"..\\node_modules\\jquery\\dist\\jquery.js"}],"main.js":[function(require,module,exports) {
+'use strict';
+
+require('./global.css');
+
+require('./app1.js');
+
+var _jquery = require('jquery');
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+},{"./global.css":"global.css","./app1.js":"app1.js","jquery":"..\\node_modules\\jquery\\dist\\jquery.js"}],"..\\..\\..\\AppData\\Local\\Yarn\\Data\\global\\node_modules\\parcel\\src\\builtins\\hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -11283,7 +11310,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '9300' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '5302' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
