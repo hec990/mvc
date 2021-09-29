@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+ul {
+    list-style-type: none;
+}
+
 .page {
     display: flex;
     flex-wrap: wrap;
@@ -31,4 +35,30 @@
     font-size: 24px;
     margin-top: 40px;
     margin-left: 20px;
+}#app2 {}
+
+#app2 .tab-bar {
+    display: flex;
+    align-items: center;
+}
+
+#app2 .tab-bar li {
+    flex: 1;
+    border: 1px solid black;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+}
+
+#app2 .tab-bar>li.selected {
+    background: skyblue;
+    color: white;
+}
+
+#app2 .tab-content>li {
+    display: none;
+}
+
+#app2 .tab-content>li.active {
+    display: block;
 }

@@ -1,0 +1,27 @@
+#app2 {}
+
+#app2 .tab-bar {
+    display: flex;
+    align-items: center;
+}
+
+#app2 .tab-bar li {
+    flex: 1;
+    border: 1px solid black;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+}
+
+#app2 .tab-bar>li.selected {
+    background: skyblue;
+    color: white;
+}
+
+#app2 .tab-content>li {
+    display: none;
+}
+
+#app2 .tab-content>li.active {
+    display: block;
+}

@@ -11263,25 +11263,78 @@ var $button2 = (0, _jquery2.default)(".sub");
 var $button3 = (0, _jquery2.default)(".mike");
 var $button4 = (0, _jquery2.default)(".divite");
 var $number = (0, _jquery2.default)(".number");
+var n = localStorage.getItem("n");
+$number.text(n || 100); // 初始值
+
 
 $button1.on('click', function () {
     var n = parseInt($number.text());
     n += 1;
+    localStorage.setItem("n", n);
     $number.text(n);
 });
-},{"./app1.css":"app1.css","jquery":"..\\node_modules\\jquery\\dist\\jquery.js"}],"main.js":[function(require,module,exports) {
+
+$button2.on("click", function () {
+    var n = parseInt($number.text());
+    n -= 1;
+    localStorage.setItem("n", n);
+    $number.text(n);
+});
+$button3.on("click", function () {
+    var n = parseInt($number.text());
+    n *= 2;
+    localStorage.setItem("n", n);
+    $number.text(n);
+});
+$button4.on("click", function () {
+    var n = parseInt($number.text());
+    n /= 2;
+    localStorage.setItem("n", n);
+    $number.text(n);
+});
+},{"./app1.css":"app1.css","jquery":"..\\node_modules\\jquery\\dist\\jquery.js"}],"app2.css":[function(require,module,exports) {
+
+var reloadCSS = require('_css_loader');
+module.hot.dispose(reloadCSS);
+module.hot.accept(reloadCSS);
+},{"_css_loader":"..\\..\\..\\AppData\\Local\\Yarn\\Data\\global\\node_modules\\parcel\\src\\builtins\\css-loader.js"}],"app2.js":[function(require,module,exports) {
+"use strict";
+
+require("./app2.css");
+
+var _jquery = require("jquery");
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var $tabBar = (0, _jquery2.default)("#app2 .tab-bar");
+var $tabContent = (0, _jquery2.default)("#app2 .tab-content");
+
+$tabBar.on('click', "li", function (e) {
+    var $li = (0, _jquery2.default)(e.currentTarget);
+    // console.log($li.text())
+    $li.addClass("selected").siblings().removeClass("selected");
+    var index = $li.index();
+    $tabContent.children().eq(index).addClass("active").siblings().removeClass("active");
+});
+
+$tabBar.children().eq(0).trigger('click'); // 默认第一个被点击
+},{"./app2.css":"app2.css","jquery":"..\\node_modules\\jquery\\dist\\jquery.js"}],"main.js":[function(require,module,exports) {
 'use strict';
 
 require('./global.css');
 
 require('./app1.js');
 
+require('./app2.js');
+
 var _jquery = require('jquery');
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./global.css":"global.css","./app1.js":"app1.js","jquery":"..\\node_modules\\jquery\\dist\\jquery.js"}],"..\\..\\..\\AppData\\Local\\Yarn\\Data\\global\\node_modules\\parcel\\src\\builtins\\hmr-runtime.js":[function(require,module,exports) {
+},{"./global.css":"global.css","./app1.js":"app1.js","./app2.js":"app2.js","jquery":"..\\node_modules\\jquery\\dist\\jquery.js"}],"..\\..\\..\\AppData\\Local\\Yarn\\Data\\global\\node_modules\\parcel\\src\\builtins\\hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -11310,7 +11363,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '5302' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '7420' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
